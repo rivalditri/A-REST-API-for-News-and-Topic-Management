@@ -1,22 +1,31 @@
-import {
-    Column,
-    Model,
-    Table
-  } from 'sequelize-typescript'
-  import { DataTypes } from 'sequelize'
-  
-  @Table({ tableName: 'topic' })
-  export class TopicModel extends Model {
-    @Column({
-      type: DataTypes.INTEGER.UNSIGNED,
-      autoIncrement: true,
-      primaryKey: true
-    })
-      id!: number
-  
-    @Column({
-      type: DataTypes.STRING,
-      allowNull: false
-    })
-      topic!: string
+import { Sequelize, DataTypes, Model } from 'sequelize';
+
+class Topic extends Model {
+  public id!: number;
+  public name!: string;
+
+  static associate(models: any) {
+    Topic.belongsToMany(models.News, {
+      through: models.NewsTopic,
+      foreignKey: 'topicId',
+      otherKey: 'newsId',
+    });
   }
+}
+
+export default function (sequelize: Sequelize) {
+  Topic.init(
+    {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      modelName: 'Topic',
+    }
+  );
+
+  return Topic;
+}

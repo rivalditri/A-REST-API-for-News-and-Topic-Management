@@ -1,29 +1,16 @@
-import express from "express";
-import connection from "./configs/config";
-import { json, urlencoded } from "body-parser";
-import Router from "./routes/route";
+import express from 'express';
+import routes from './routes/routes';
 
 const app = express();
+const port = 3000;
 
-app.use(json()); 
+// Parse JSON request bodies
+app.use(express.json());
 
-app.use(urlencoded({ extended: true }));
+// Mount the routes
+app.use('/api', routes);
 
-app.use("/routes", Router);
-
-app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  res.status(500).json({ message: err.message });
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
-
-connection
-  .sync()
-  .then(() => {
-    console.log("Database Synced Successfully");
-  })
-  .catch((err) => {
-    console.log("Database Sync Failed");
-    console.log(err);
-  });
-
-app.listen(3000);
-console.log("Server Started at http://localhost:3000");

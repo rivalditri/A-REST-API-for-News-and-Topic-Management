@@ -1,7 +1,9 @@
-import { Sequelize } from "sequelize-typescript";
-import {ArticleModel} from "../models/article";
+import { Sequelize } from 'sequelize-typescript';
+import NewsModel from '../models/News';
+import TopicModel from '../models/topic';
+import NewsTopicModel from '../models/news-topic';
 
-
+// Initialize Sequelize connection
 const connection = new Sequelize({
   dialect: "mysql",
   host: "localhost",
@@ -10,7 +12,24 @@ const connection = new Sequelize({
   password: "",
   database: "article",
   logging: false,
-  models: [ArticleModel],
+});
+// Define models and associations
+const models = {
+  News: NewsModel(connection),
+  Topic: TopicModel(connection),
+  NewsTopic: NewsTopicModel(connection),
+};
+
+// Set up associations
+Object.values(models).forEach((model: any) => {
+  if (model.associate) {
+    model.associate(models);
+  }
 });
 
-export default connection;
+// Sync the models with the database
+connection.sync({ force: true }).then(() => {
+  console.log('Models synced with the database');
+});
+
+export default models;
