@@ -8,14 +8,14 @@ This is a RESTful API for managing news articles and topics. It provides CRUD en
 - Express.js
 - TypeScript
 - Sequelize (ORM)
-- PostgreSQL (or your preferred database)
+- my sql / PostgreSQL (or your preferred database)
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js and npm installed on your machine
-- PostgreSQL database configured (update the connection details in `config/config.json`)
+- mysql / PostgreSQL database configured (update the connection details in `config/config.json`)
 
 ### Installation
 
@@ -39,7 +39,7 @@ npx sequelize-cli db:migrate
 ### Usage
 1. Start the server:
 ```bash```
-npm start
+npm run start-dev
 
 2. The API will be accessible at http://localhost:3000
 ### API Endpoints
