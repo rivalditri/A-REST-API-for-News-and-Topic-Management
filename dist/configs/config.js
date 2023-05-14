@@ -30,7 +30,7 @@ Object.values(models).forEach((model) => {
     }
 });
 // Sync the models with the database
-connection.sync({ force: true }).then(() => {
+connection.sync({ force: false }).then(() => {
     console.log('Models synced with the database');
 });
 exports.default = models;
