@@ -43,14 +43,14 @@ npm start
 
 2. The API will be accessible at http://localhost:3000
 ### API Endpoints
-# GET /news: Get all news articles (supports filtering by status and topic)
-# GET /news/:id: Get a specific news article by ID
-# POST /news: Create a new news article
-# PUT /news/:id: Update a news article by ID
-# DELETE /news/:id: Delete a news article by ID
-# GET /topics: Get all topics
-# GET /topics/:id: Get a specific topic by ID
-# POST /topics: Create a new topic
-# PUT /topics/:id: Update a topic by ID
-# DELETE /topics/:id: Delete a topic by ID
+##### GET /news: Get all news articles (supports filtering by status and topic)
+##### GET /news/:id: Get a specific news article by ID
+##### POST /news: Create a new news article
+##### PUT /news/:id: Update a news article by ID
+##### DELETE /news/:id: Delete a news article by ID
+##### GET /topics: Get all topics
+##### GET /topics/:id: Get a specific topic by ID
+##### POST /topics: Create a new topic
+##### PUT /topics/:id: Update a topic by ID
+##### DELETE /topics/:id: Delete a topic by ID
 For detailed request and response examples, please refer to the API documentation.
