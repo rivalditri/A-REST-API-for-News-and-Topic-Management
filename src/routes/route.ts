@@ -1,12 +1,14 @@
 import { Router } from "express";
 
-// import { createArticle, deleteArticle, getAllArticle, updateArticle} from "../controllers/todo";
+import { createArticle, updateArticle, getAllArticle, deleteArticle, getArticleById} from "../controllers/articleController";
 
 const router = Router();
 
-// router.post("/", createArticle);
-// router.get("/", getAllArticle
-// router.put("/:id", updateArticle);
-// router.delete("/:id", deleteArticle);
+router.post("/newArticle", createArticle);
+router.get("/", getAllArticle);
+router.get("/:id", getArticleById);
+router.put("/:id", updateArticle);
+router.delete("/:id", deleteArticle);
+
 
 export default router;

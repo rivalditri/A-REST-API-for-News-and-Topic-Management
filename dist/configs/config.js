@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_typescript_1 = require("sequelize-typescript");
-// import { Todos } from "../models/todos";
+const article_1 = require("../models/article");
 const connection = new sequelize_typescript_1.Sequelize({
     dialect: "mysql",
     host: "localhost",
     port: 3306,
     username: "root",
     password: "",
-    database: "todo",
+    database: "article",
     logging: false,
-    //   models: [Todos],
+    models: [article_1.ArticleModel],
 });
 exports.default = connection;

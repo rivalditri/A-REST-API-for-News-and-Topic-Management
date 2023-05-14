@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize-typescript";
+import {ArticleModel} from "../models/article";
 
 
 const connection = new Sequelize({
@@ -7,9 +8,9 @@ const connection = new Sequelize({
   port: 3306,
   username: "root",
   password: "",
-  database: "",
+  database: "article",
   logging: false,
-//   models: [article],
+  models: [ArticleModel],
 });
 
 export default connection;
