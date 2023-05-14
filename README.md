@@ -23,7 +23,6 @@ This is a RESTful API for managing news articles and topics. It provides CRUD en
 
 ```bash```
 git clone https://github.com/rivalditri/A-REST-API-for-News-and-Topic-Management.git
-cd news-topic-api
 
 2. Install the dependencies:
 ```bash```
